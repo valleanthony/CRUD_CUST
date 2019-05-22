@@ -37,11 +37,6 @@
                     <td th:text="${customer.lastname}"></td>
                     <td th:text="${customer.emailaddress}"></td>
                     <td th:text="${customer.zipcode}"></td>
-                    <td>
-                        <a th:href="@{/update/{id}(id=${customer.customerid})}">Update</a>
-                        <a th:href="@{/detail/{id}(id=${customer.customerid})}">Details</a>
-                        <a th:href="@{/delete/{id}(id=${customer.customerid})}">Delete</a>
-                    </td>
                 </tr>
 
             </table>

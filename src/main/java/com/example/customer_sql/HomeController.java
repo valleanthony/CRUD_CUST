@@ -13,8 +13,17 @@ import javax.validation.Valid;
 
 @Controller
 public class HomeController {
+
     @Autowired
     CustRepo custRepo;
+
+    /*
+    @RequestMapping("/search")
+    public String search(Model model, String lastname){
+        model.addAttribute("customers",custRepo.findByLastname(lastname));
+        return "search";
+    }
+    */
 
     @RequestMapping("/")
     public String listcust(Model model){
@@ -39,22 +48,24 @@ public class HomeController {
     }
 
     @RequestMapping("/detail/{id}")
-    public String showCust(@PathVariable("id") long id, Model model){
-        model.addAttribute("tweet",custRepo.findById(id).get());
+    public String showCust(@PathVariable("customerid") long customerid, Model model){
+        model.addAttribute("tweet",custRepo.findById(customerid).get());
         return "mytweet";
     }
 
     @RequestMapping("/update/{id}")
-    public String updateTwee(@PathVariable("id") long id, Model model){
-        model.addAttribute("tweet",custRepo.findById(id).get());
+    public String updateTwee(@PathVariable("customerid") long customerid, Model model){
+        model.addAttribute("tweet",custRepo.findById(customerid).get());
         return "form";
     }
 
     @RequestMapping("/delete/{id}")
-    public String delTweet(@PathVariable("id") long id){
-        custRepo.deleteById(id);
+    public String delTweet(@PathVariable("customerid") long customerid){
+        custRepo.deleteById(customerid);
         return "redirect:/";
     }
+
+
 
 
 

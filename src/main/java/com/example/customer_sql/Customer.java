@@ -1,6 +1,8 @@
 package com.example.customer_sql;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -8,8 +10,9 @@ import javax.validation.constraints.NotNull;
 public class Customer {
 
     @Id
-    @NotNull // should the strategy be auto Gen?
-    private long id;
+    @NotNull
+    @GeneratedValue (strategy = GenerationType.IDENTITY)// should the strategy be auto Gen?
+    private long customerid;
 
     @NotNull
     private String Title;
@@ -21,7 +24,7 @@ public class Customer {
     private String Lastname;
 
     @NotNull
-    private String Streetadress;
+    private String Streetaddress;
 
     @NotNull
     private String Zipcode;
@@ -29,45 +32,27 @@ public class Customer {
     @NotNull
     private String Emailaddress;
 
-    @NotNull
+
     private String Position;
 
-    @NotNull
-    private long Customerid;
 
-    @NotNull
     private long Companyid;
 
-    @NotNull
+
     private long cityid;
 
-    @NotNull
+
     private long stateid;
 
     public Customer() {
     }
 
-    public Customer(@NotNull long id, @NotNull String title, @NotNull String firstname, @NotNull String lastname, @NotNull String streetadress, @NotNull String zipcode, @NotNull String emailaddress, @NotNull String position, @NotNull long customerid, @NotNull long companyid, @NotNull long cityid, @NotNull long stateid) {
-        this.id = id;
-        Title = title;
-        Firstname = firstname;
-        Lastname = lastname;
-        Streetadress = streetadress;
-        Zipcode = zipcode;
-        Emailaddress = emailaddress;
-        Position = position;
-        Customerid = customerid;
-        Companyid = companyid;
-        this.cityid = cityid;
-        this.stateid = stateid;
+    public long getCustomerid() {
+        return customerid;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setCustomerid(long customerid) {
+        this.customerid = customerid;
     }
 
     public String getTitle() {
@@ -94,12 +79,12 @@ public class Customer {
         Lastname = lastname;
     }
 
-    public String getStreetadress() {
-        return Streetadress;
+    public String getStreetaddress() {
+        return Streetaddress;
     }
 
-    public void setStreetadress(String streetadress) {
-        Streetadress = streetadress;
+    public void setStreetaddress(String streetaddress) {
+        Streetaddress = streetaddress;
     }
 
     public String getZipcode() {
@@ -126,14 +111,6 @@ public class Customer {
         Position = position;
     }
 
-    public long getCustomerid() {
-        return Customerid;
-    }
-
-    public void setCustomerid(long customerid) {
-        Customerid = customerid;
-    }
-
     public long getCompanyid() {
         return Companyid;
     }
@@ -157,7 +134,6 @@ public class Customer {
     public void setStateid(long stateid) {
         this.stateid = stateid;
     }
-
 }
 
 
